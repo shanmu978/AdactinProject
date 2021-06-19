@@ -1,0 +1,61 @@
+Feature: Hotel Booking Using Adactin Application
+
+@smoketest
+Scenario Outline: Testing The Adactin App
+
+Given user Navigate Into The Adactin Application
+When user Enter The UserName "<username>" Details
+And user Enter the Password "<password>" Details
+Then user Navigates To Search For Hotel Page
+
+Examples:
+|username|password|
+|vishnubalan|Idlysambar@2024|
+|shan30footbal|Sh@n123|
+
+@smoketest
+Scenario Outline: Search For Hotel
+
+When user Choose the Location Where To Stay 
+And user Choose the Hotel Based On Location 
+And user Choose Which Type of Room 
+And user Choose Number Of Rooms 
+And user Choose The CheckIn Date 
+And user Choose The CheckOut Date 
+And user Choose AdultsPerRoom 
+And user Choose ChildrenPerRoom 
+Then user Navigates To Select Hotel Page
+
+Examples:
+|location |location1|
+|Los Angeles|Hotel Sunshine|
+
+@sanitytest
+Scenario: Select Hotel
+
+When user Choose the HotelName TO Stay
+Then user Navigates To Book A Hotel Page
+
+
+Scenario: Book A Hotel
+
+When user Provide The FirstName
+And user Provide The LastName
+And user Provide The Billing Address
+And user Provide Credit Card No
+And user Provide Credit Card Type
+And user Provide Expiry Date
+And user Provide CVV Number
+Then user Navigates to Booking Confirmation Page
+
+Scenario: Booking Confirmation
+
+Then user Navigates to Booked Itenary Page
+
+Scenario: Booked Itenary
+
+Then user Logout
+
+
+
+
